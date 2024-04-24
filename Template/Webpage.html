@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain Tumor Detection</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        #prediction-chart {
+            width: 100%;
+            height: 400px;
+            max-height: 400px;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <div class="container mx-auto p-6 bg-white rounded-lg shadow-lg">
+        <h1 class="text-4xl font-bold text-center text-blue-600 mb-8">Brain Tumor Detection</h1>
+        <i class="fas fa-info-circle info-btn text-blue-600 text-2xl cursor-pointer absolute top-6 right-6"></i>
+        <form id="upload-form" action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" id="file-input" name="file" accept="image/*" required class="hidden">
+            <label for="file-input" class="block w-full max-w-xs mx-auto mb-8 bg-blue-600 text-white font-semibold rounded-md py-3 text-center cursor-pointer transition duration-300 hover:bg-blue-700">
+                Choose Image
+            </label>
+        </form>
+        <div class="flex justify-center items-center mb-8">
+            <img id="image-preview" src="#" alt="Preview" class="block max-w-full max-h-80 md:max-h-96 mx-auto rounded-md shadow-md">
+        </div>
+        <button id="process-btn" class="block w-full max-w-xs mx-auto bg-blue-600 text-white font-semibold rounded-md py-3 text-center cursor-pointer transition duration-300 hover:bg-blue-700">
+            Predict
+        </button>
+        <div class="mt-8">
+            <canvas id="prediction-chart" class="w-full"></canvas>
+            <p id="message-preview" class="text-xl text-center mt-8"></p>
+        </div>
+    </div>
+
+    <div id="myModal" class="modal fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center hidden">
+        <div class="modal-content bg-white rounded-lg p-8">
+            <span class="close absolute top-4 right-4 text-gray-500 cursor-pointer text-2xl">&times;</span>
+            <h2 class="text-2xl font-bold mb-4">About Brain Tumor Detection</h2>
+            <p>This application uses machine learning to detect the presence of brain tumors in medical images. Simply upload an image, and the application will analyze it and provide a prediction of the type of tumor, if any.</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var ctx = document.getElementById('prediction-chart').getContext('2d');
+        var predictionChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['Glioma', 'Meningioma', 'No Tumor', 'Pituitary'],
+                datasets: [{
+                    label: 'Probability',
+                    data: [0, 0, 0, 0],
+                    backgroundColor: [
+                        '#4CAF50',
+                        '#FF9800',
+                        '#2196F3',
+                        '#9C27B0'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: {
+                            callback: function(value, index, ticks) {
+                                return value + '%';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        document.getElementById('file-input').addEventListener('change', function(event) {
+            var file = event.target.files[0];
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById('image-preview').src = e.target.result;
+                document.getElementById('image-preview').style.display = 'block';
+            }
+            reader.readAsDataURL(file);
+        });
+
+        document.getElementById('process-btn').addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent default form submission behavior
+
+            var formData = new FormData();
+            formData.append('file', document.getElementById('file-input').files[0]);
+
+            fetch('/upload', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    alert(data.error);
+                } else {
+                    predictionChart.data.datasets[0].data = [
+                        data.probabilities.Glioma_tumor,
+                        data.probabilities.Meningioma_tumor,
+                        data.probabilities.No_tumor,
+                        data.probabilities.Pituitary_tumor
+                    ];
+                    predictionChart.update();
+                    document.getElementById('message-preview').textContent = data.message;
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        });
+        var modal = document.getElementById("myModal");
+        var btn = document.querySelector(".info-btn");
+        var span = document.getElementsByClassName("close")[0];
+
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

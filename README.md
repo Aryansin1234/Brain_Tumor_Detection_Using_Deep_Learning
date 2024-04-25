@@ -45,7 +45,7 @@ Organized as follows:
 ## Getting Started
 1. **Run the Flask Application**:  
     ```bash
-    python webapp.py
+    python Webapp.py
     ```
 
 2. **Navigate to the Web App**:  

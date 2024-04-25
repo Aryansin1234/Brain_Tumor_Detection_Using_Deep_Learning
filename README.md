@@ -1,7 +1,5 @@
 # Brain Tumor Detection 🧠
 
-![Brain Tumor Detection](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.frontiersin.org%2Fjournals%2Fneurology%2Farticles%2F10.3389%2Ffneur.2022.932219%2Ffull&psig=AOvVaw1B3LdXUws8BCP8E2MJEjy5&ust=1714024002022000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCJiT05CT2oUDFQAAAAAdAAAAABAE)
-
 Welcome to the Brain Tumor Detection project! This web application uses deep learning to identify brain tumors from medical images, providing you with accurate diagnoses to assist in effective treatment. Let's dive in!
 
 ## Table of Contents
@@ -23,9 +21,9 @@ Brain tumor detection is a complex challenge, but our project tackles it head-on
 The dataset includes 2,896 medical images across four classes:
 
 - **Glioma Tumor**: 926 images
-- **Meningioma Tumor**: 902 images
-- **No Tumor**: 504 images
-- **Pituitary Tumor**: 564 images
+- **Meningioma Tumor**: 937 images
+- **No Tumor**: 500 images
+- **Pituitary Tumor**: 901 images
 
 Organized as follows:
 
@@ -47,7 +45,7 @@ Organized as follows:
 ## Getting Started
 1. **Run the Flask Application**:  
     ```bash
-    python app.py
+    python webapp.py
     ```
 
 2. **Navigate to the Web App**:  

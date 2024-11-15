@@ -21,7 +21,7 @@ def allowed_file(filename):
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 # Load the model
-Model = load_model('Model.h5',compile=False)
+Model = load_model('braintumor.h5',compile=False)
 
 tumor_class = {
     0: 'glioma',

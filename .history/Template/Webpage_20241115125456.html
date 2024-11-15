@@ -1,44 +1,32 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Neuro Detect - Advanced Brain Tumor Detection</title>
-
     <link rel="icon" href="https://raw.githubusercontent.com/Aryansin1234/Brain-Tumor-Detection-EfficientNet/refs/heads/main/2890580-artificialintelligence9_101980.ico" type="image/x-icon">
-
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
     <style>
-
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
-
         body {
             font-family: 'Poppins', sans-serif;
         }
-
         .gradient-text {
-            background: linear-gradient(135deg, #5821b0, #a76ded);
+            background: linear-gradient(135deg, #2193b0, #6dd5ed);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-
         .neumorph {
             background: #f0f0f0;
             box-shadow: 8px 8px 16px #d1d1d1, -8px -8px 16px #ffffff;
             border-radius: 20px;
         }
-
         .flip-card {
             perspective: 1000px;
             height: 400px;
         }
-
         .flip-card-inner {
             position: relative;
             width: 100%;
@@ -46,11 +34,9 @@
             transition: transform 0.8s;
             transform-style: preserve-3d;
         }
-
         .flip-card:hover .flip-card-inner {
             transform: rotateY(180deg);
         }
-
         .flip-card-front, .flip-card-back {
             position: absolute;
             width: 100%;
@@ -63,21 +49,18 @@
             align-items: center;
             padding: 20px;
         }
-
         .flip-card-back {
             transform: rotateY(180deg);
             overflow-y: auto;
         }
-
         .animate-float {
             animation: float 6s ease-in-out infinite;
         }
-
         @keyframes float {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-20px); }
         }
-
+        
         /* New styles for animations and scroll-to-top button */
         .fade-in {
             opacity: 0;
@@ -94,7 +77,7 @@
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background-color: rgba(88, 33, 176, 0.8);
+            background-color: rgba(59, 130, 246, 0.8);
             color: white;
             width: 50px;
             height: 50px;
@@ -111,7 +94,7 @@
         }
 
         .scroll-to-top:hover {
-            background-color: rgba(88, 33, 176, 1);
+            background-color: rgba(59, 130, 246, 1);
             transform: scale(1.1);
         }
 
@@ -123,7 +106,7 @@
         /* Typing animation for hero section */
         .typing-animation {
             overflow: hidden;
-            border-right: 0.15em solid #5821b0;
+            border-right: 0.15em solid #2193b0;
             white-space: nowrap;
             margin: 0 auto;
             letter-spacing: 0.15em;
@@ -139,138 +122,28 @@
 
         @keyframes blink-caret {
             from, to { border-color: transparent }
-            50% { border-color: #5821b0 }
+            50% { border-color: #2193b0 }
         }
-
         .nav-link.active {
-            color: #5821b0; /* Updated to match new gradient color */
+            color: #3B82F6; /* Blue-500 */
             font-weight: bold;
-        }
-
-        ::-webkit-scrollbar {
-            width: 12px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #f0f0f0;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #5821b0;
-            border-radius: 6px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #a76ded;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .text-6xl {
-                font-size: 2.5rem;
-            }
-            .text-3xl {
-                font-size: 1.75rem;
-            }
-            .text-2xl {
-                font-size: 1.5rem;
-            }
-            .text-xl {
-                font-size: 1.25rem;
-            }
-            .text-lg {
-                font-size: 1rem;
-            }
-            .p-10 {
-                padding: 2.5rem;
-            }
-            .py-20 {
-                padding-top: 5rem;
-                padding-bottom: 5rem;
-            }
-            .mt-20 {
-                margin-top: 5rem;
-            }
-        }
-        body {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-        .content {
-            flex: 1 0 auto;
-        }
-        .footer {
-            flex-shrink: 0;
-        }
-        .footer {
-            background-color: #333;
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-        }
-        .footer p {
-            margin: 0;
-        
-                    /* Custom Scrollbar Styles */
-        * {
-            scrollbar-width: thin;
-            scrollbar-color: #5821b0 #f0f0f0;
-        }
-
-        *::-webkit-scrollbar {
-            width: 12px;
-        }
-
-        *::-webkit-scrollbar-track {
-            background: #f0f0f0;
-        }
-
-        *::-webkit-scrollbar-thumb {
-            background-color: #5821b0;
-            border-radius: 6px;
-            border: 3px solid #f0f0f0;
-        }
-
-        *::-webkit-scrollbar-thumb:hover {
-            background-color: #a76ded;
-        }
-
-        /* For Firefox */
-        * {
-            scrollbar-width: thin;
-            scrollbar-color: #5821b0 #f0f0f0;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            /* ... (existing responsive styles) ... */
-
-            /* Adjust scrollbar for mobile */
-            *::-webkit-scrollbar {
-                width: 6px;
-            }
-
-            *::-webkit-scrollbar-thumb {
-                border-width: 1px;
-            }
         }
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
     <nav class="fixed w-full bg-white bg-opacity-90 shadow-md z-50">
-        <div class="container mx-auto px-4 sm:px-6 py-3">
+        <div class="container mx-auto px-6 py-3">
             <div class="flex justify-between items-center">
-                <a href="#" class="text-xl sm:text-2xl font-bold gradient-text">Neuro Detect</a>
+                <a href="#" class="text-2xl font-bold gradient-text">Neuro Detect</a>
                 <div class="hidden md:flex space-x-4">
-                    <a id="nav-about" href="#about" class="nav-link hover:text-purple-500 transition">About</a>
-                    <a id="nav-tumors" href="#tumors" class="nav-link hover:text-purple-500 transition">Tumor Types</a>
-                    <a id="nav-detection" href="#detection" class="nav-link hover:text-purple-500 transition">Detection</a>
-                    <a id="nav-model" href="#model" class="nav-link hover:text-purple-500 transition">Our Model</a>
+                    <a id="nav-about" href="#about" class="nav-link hover:text-blue-500 transition">About</a>
+                    <a id="nav-tumors" href="#tumors" class="nav-link hover:text-blue-500 transition">Tumor Types</a>
+                    <a id="nav-detection" href="#detection" class="nav-link hover:text-blue-500 transition">Detection</a>
+                    <a id="nav-model" href="#model" class="nav-link hover:text-blue-500 transition">Our Model</a>
                 </div>
                 <div class="md:hidden flex items-center">
                     <button class="outline-none mobile-menu-button">
-                        <svg class="w-6 h-6 text-gray-500 hover:text-purple-500"
+                        <svg class="w-6 h-6 text-gray-500 hover:text-blue-500"
                             x-show="!showMenu"
                             fill="none"
                             stroke-linecap="round"
@@ -287,33 +160,34 @@
         </div>
         <div class="hidden mobile-menu">
             <ul class="">
-                <li><a href="#intro" class="block text-sm px-2 py-4 hover:bg-purple-500 hover:text-white transition duration-300">Home</a></li>
-                <li><a href="#about" class="block text-sm px-2 py-4 hover:bg-purple-500 hover:text-white transition duration-300">About</a></li>
-                <li><a href="#tumors" class="block text-sm px-2 py-4 hover:bg-purple-500 hover:text-white transition duration-300">Tumor Types</a></li>
-                <li><a href="#detection" class="block text-sm px-2 py-4 hover:bg-purple-500 hover:text-white transition duration-300">Detection</a></li>
-                <li><a href="#model" class="block text-sm px-2 py-4 hover:bg-purple-500 hover:text-white transition duration-300">Our Model</a></li>
+                <li><a href="#intro" class="block text-sm px-2 py-4 hover:bg-blue-500 hover:text-white transition duration-300">Home</a></li>
+                <li><a href="#about" class="block text-sm px-2 py-4 hover:bg-blue-500 hover:text-white transition duration-300">About</a></li>
+                <li><a href="#tumors" class="block text-sm px-2 py-4 hover:bg-blue-500 hover:text-white transition duration-300">Tumor Types</a></li>
+                <li><a href="#detection" class="block text-sm px-2 py-4 hover:bg-blue-500 hover:text-white transition duration-300">Detection</a></li>
+                <li><a href="#model" class="block text-sm px-2 py-4 hover:bg-blue-500 hover:text-white transition duration-300">Our Model</a></li>
             </ul>
         </div>
     </nav>
 
-    <div class="container mx-auto px-4 sm:px-6 space-y-12 sm:space-y-20 pt-16 sm:pt-20">
+    <div class="container mx-auto p-6 space-y-20 pt-20">
         <!-- Hero Section -->
-        <section id="hero" class="min-h-screen flex items-center justify-center relative">
+        <section id="hero" class="h-screen flex items-center justify-center relative">
             <canvas id="dna-animation" class="absolute top-0 left-0 w-full h-full"></canvas>
-            <div class="text-center relative z-10 px-4 sm:px-0">
-                <h1 class="text-4xl sm:text-6xl font-bold mb-4 sm:mb-5 animate-float"><span class="gradient-text">AI-Powered Brain Tumor Detection</span>🧠</h1>
-                <p class="text-xl sm:text-2xl mb-6 sm:mb-8">Harness the power of artificial intelligence for quick and accurate brain tumor analysis.</p>
-                <a href="#detection" class="bg-gradient-to-r from-purple-500 to-teal-400 text-white font-semibold rounded-full py-2 sm:py-3 px-6 sm:px-8 hover:from-purple-600 hover:to-teal-500 transition duration-300 text-base sm:text-lg">Start Detection</a>
+            <div class="text-center relative z-10">
+                <h1 class="text-6xl font-bold mb-5 animate-float"><span class="gradient-text">AI-Powered Brain Tumor Detection</span> 🧠🔍</h1>
+                <p class="text-2xl mb-8">Harness the power of artificial intelligence for quick and accurate brain tumor analysis.</p>
+                <a href="#detection" class="bg-gradient-to-r from-blue-500 to-teal-400 text-white font-semibold rounded-full py-3 px-8 hover:from-blue-600 hover:to-teal-500 transition duration-300">Start Detection</a>
             </div>
         </section>
         
         <!-- About Section -->
-        <section id="about" class="neumorph p-6 sm:p-10">
-            <h2 class="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 fade-in"><span class="gradient-text">About Neuro Detect</span>📊</h2>
-            <p class="text-base sm:text-lg mb-4 fade-in">Neuro Detect leverages advanced deep learning technology, specifically designed for analyzing brain MRI scans, providing fast and accurate tumor classification.</p>
+        <section id="about" class="neumorph p-10">
+            <h2 class="text-3xl font-bold mb-6 fade-in"><span class="gradient-text">About Neuro Detect</span>📊</h2>
+            <p class="text-lg mb-4 fade-in">Neuro Detect leverages advanced deep learning technology, specifically designed for analyzing brain MRI scans, providing fast and accurate tumor classification.</p>
+            <p class="text-lg mb-4 fade-in">Our goal is to empower healthcare professionals with an AI-driven tool for early and precise detection of brain tumors, enhancing the diagnostic process and potentially saving lives through timely interventions.</p>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
                 <div class="text-center fade-in">
-                    <i class="fas fa-brain text-4xl text-purple-500 mb-4 animate-float"></i>
+                    <i class="fas fa-brain text-4xl text-blue-500 mb-4 animate-float"></i>
                     <h3 class="text-xl font-semibold mb-2">Advanced AI</h3>
                     <p>Built with EfficientNetB3, our AI model offers cutting-edge feature extraction for superior tumor detection and classification.</p>
                 </div>
@@ -323,130 +197,99 @@
                     <p>Receive MRI scan results in seconds, delivering real-time insights for quick decision-making and diagnosis.</p>
                 </div>
                 <div class="text-center fade-in">
-                    <i class="fas fa-chart-line text-4xl text-purple-500 mb-4 animate-float"></i>
+                    <i class="fas fa-chart-line text-4xl text-blue-500 mb-4 animate-float"></i>
                     <h3 class="text-xl font-semibold mb-2">Exceptional Accuracy</h3>
                     <p>With an accuracy rate of 99.85%, Neuro Detect ensures reliable and precise classification across multiple tumor types.</p>
                 </div>
             </div>
-
         </section>
-
 
         <!-- Tumor Types Section -->
-        <section id="tumors" class="py-12 sm:py-20">
-            <h2 class="text-2xl sm:text-3xl font-bold mb-6 sm:mb-10 text-center fade-in"><span class="gradient-text">Types of Brain Tumors</span>🧬</h2>
-            <p class="text-base sm:text-lg mb-6 sm:mb-10 text-center fade-in">Understanding the different types of brain tumors is crucial for accurate diagnosis and treatment. Here are some of the most common types:</p>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            <div class="flip-card fade-in">
-            <div class="flip-card-inner neumorph">
-                <div class="flip-card-front bg-gradient-to-br from-purple-100 to-teal-100 p-4">
-                    <div class="w-24 h-24 bg-purple-500 rounded-full flex items-center justify-center mb-4">
-                        <i class="fas fa-dna text-4xl text-white"></i>
+        <section id="tumors" class="py-20">
+            <h2 class="text-3xl font-bold mb-10 text-center fade-in"><span class="gradient-text">Types of Brain Tumors</span>🧬</h2>
+            <p class="text-lg mb-10 text-center fade-in">Understanding the different types of brain tumors is crucial for accurate diagnosis and treatment. Here are some of the most common types:</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="flip-card fade-in">
+                    <div class="flip-card-inner neumorph">
+                        <div class="flip-card-front bg-gradient-to-br from-blue-100 to-teal-100">
+                            <div class="w-24 h-24 bg-blue-500 rounded-full flex items-center justify-center mb-4">
+                                <i class="fas fa-dna text-4xl text-white"></i>
+                            </div>
+                            <h3 class="text-2xl font-semibold mb-2 text-blue-700">Glioma</h3>
+                            <p class="text-center text-blue-800">Tumors that occur in the brain and spinal cord, originating in glial cells.</p>
+                        </div>
+                        <div class="flip-card-back bg-blue-100">
+                            <h3 class="text-2xl font-semibold mb-2 text-blue-700">Glioma</h3>
+                            <p class="text-blue-800 mb-4">Gliomas are tumors that develop from glial cells in the brain and spinal cord. They can affect brain function and be life-threatening depending on their location and growth rate.</p>
+                            <h4 class="font-semibold mt-4 text-blue-700">Common Symptoms:</h4>
+                            <ul class="list-disc list-inside text-blue-800">
+                                <li>Headaches</li>
+                                <li>Seizures</li>
+                                <li>Vision problems</li>
+                                <li>Personality changes</li>
+                            </ul>
+                        </div>
                     </div>
-                    <h3 class="text-2xl font-semibold mt-3 text-purple-700">Glioma</h3>
-                    <p class="text-center text-purple-800">Tumors that occur in the brain and spinal cord, originating in glial cells.</p>
                 </div>
-                <div class="flip-card-back bg-purple-100 p-4">
-                    <h3 class="text-2xl font-semibold mb-2 text-purple-700">Glioma</h3>
-                    <p class="text-purple-800 mb-4">Gliomas are tumors that develop from glial cells in the brain and spinal cord. They can affect brain function and be life-threatening depending on their location and growth rate.</p>
-                    <h4 class="font-semibold mt-2 text-purple-700">Common Symptoms:</h4>
-                    <ul class="list-disc list-inside text-purple-800">
-                        <li>Headaches</li>
-                        <li>Seizures</li>
-                        <li>Vision problems</li>
-                        <li>Personality changes</li>
-                    </ul>
-                    <a href="https://my.clevelandclinic.org/health/diseases/21969-glioma" class="mt-4 inline-block bg-purple-500 text-white py-2 px-4 rounded-full hover:bg-purple-600 transition duration-300">Learn More</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="flip-card fade-in">
-            <div class="flip-card-inner neumorph">
-                <div class="flip-card-front bg-gradient-to-br from-teal-100 to-purple-100 p-4">
-                    <div class="w-24 h-24 bg-teal-500 rounded-full flex items-center justify-center mb-4">
-                        <i class="fas fa-brain text-4xl text-white"></i>
+                <div class="flip-card fade-in">
+                    <div class="flip-card-inner neumorph">
+                        <div class="flip-card-front bg-gradient-to-br from-teal-100 to-blue-100">
+                            <div class="w-24 h-24 bg-teal-500 rounded-full flex items-center justify-center mb-4">
+                                <i class="fas fa-brain text-4xl text-white"></i>
+                            </div>
+                            <h3 class="text-2xl font-semibold mb-2 text-teal-700">Meningioma</h3>
+                            <p class="text-center text-teal-800">Tumors that form on membranes covering the brain and spinal cord.</p>
+                        </div>
+                        <div class="flip-card-back bg-teal-100">
+                            <h3 class="text-2xl font-semibold mb-2 text-teal-700">Meningioma</h3>
+                            <p class="text-teal-800 mb-4">Meningiomas are tumors that arise from the meninges, the membranes surrounding the brain and spinal cord. They are often slow-growing and may not cause symptoms for years.</p>
+                            <h4 class="font-semibold mt-4 text-teal-700">Common Symptoms:</h4>
+                            <ul class="list-disc list-inside text-teal-800">
+                                <li>Headaches</li>
+                                <li>Hearing loss or ringing in the ears</li>
+                                <li>Vision problems</li>
+                                <li>Memory loss</li>
+                            </ul>
+                        </div>
                     </div>
-                    <h3 class="text-2xl font-semibold mb-2 text-teal-700">Meningioma</h3>
-                    <p class="text-center text-teal-800">Tumors that form on membranes covering the brain and spinal cord.</p>
                 </div>
-                <div class="flip-card-back bg-teal-100 p-4">
-                    <h3 class="text-2xl font-semibold mt-3 text-teal-700">Meningioma</h3>
-                    <p class="text-teal-800 mb-4">Meningiomas are tumors that arise from the meninges, the membranes surrounding the brain and spinal cord. They are often slow-growing and may not cause symptoms for years.</p>
-                    <h4 class="font-semibold mt-2 text-teal-700">Common Symptoms:</h4>
-                    <ul class="list-disc list-inside text-teal-800">
-                        <li>Headaches</li>
-                        <li>Hearing loss or ringing in the ears</li>
-                        <li>Vision problems</li>
-                        <li>Memory loss</li>
-                    </ul>
-                    <a href="https://my.clevelandclinic.org/health/diseases/17858-meningioma" class="mt-4 inline-block bg-purple-500 text-white py-2 px-4 rounded-full hover:bg-purple-600 transition duration-300">Learn More</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="flip-card fade-in">
-            <div class="flip-card-inner neumorph">
-                <div class="flip-card-front bg-gradient-to-br from-purple-100 to-teal-100 p-4">
-                    <div class="w-24 h-24 bg-purple-500 rounded-full flex items-center justify-center mb-4">
-                        <i class="fas fa-microscope text-4xl text-white"></i>
+                <div class="flip-card fade-in">
+                    <div class="flip-card-inner neumorph">
+                        <div class="flip-card-front bg-gradient-to-br from-blue-100 to-teal-100">
+                            <div class="w-24 h-24 bg-blue-500 rounded-full flex items-center justify-center mb-4">
+                                <i class="fas fa-microscope text-4xl text-white"></i>
+                            </div>
+                            <h3 class="text-2xl font-semibold mb-2 text-blue-700">Pituitary Tumor</h3>
+                            <p class="text-center text-blue-800">Tumors that develop in the pituitary gland at the base of the brain.</p>
+                        </div>
+                        <div class="flip-card-back bg-blue-100">
+                            <h3 class="text-2xl font-semibold mb-2 text-blue-700">Pituitary Tumor</h3>
+                            <p class="text-blue-800 mb-4">Pituitary tumors are abnormal growths that develop in the pituitary gland. They can affect hormone production and cause various endocrine system disorders.</p>
+                            <h4 class="font-semibold mt-4 text-blue-700">Common Symptoms:</h4>
+                            <ul class="list-disc list-inside text-blue-800">
+                                <li>Headaches</li>
+                                <li>Vision problems</li>
+                                <li>Hormonal imbalances</li>
+                                <li>Fatigue</li>
+                            </ul>
+                        </div>
                     </div>
-                    <h3 class="text-2xl font-semibold mb-2 text-purple-700">Pituitary Tumor</h3>
-                    <p class="text-center text-purple-800">Tumors that develop in the pituitary gland at the base of the brain.</p>
-                </div>
-                <div class="flip-card-back bg-purple-100 p-4">
-                    <h3 class="text-2xl font-semibold mt-4 text-purple-700">Pituitary Tumor</h3>
-                    <p class="text-purple-800 mb-4">Pituitary tumors are abnormal growths that develop in the pituitary gland. They can affect hormone production and cause various endocrine system disorders.</p>
-                    <h4 class="font-semibold mt-2 text-purple-700">Common Symptoms:</h4>
-                    <ul class="list-disc list-inside text-purple-800">
-                        <li>Headaches</li>
-                        <li>Vision problems</li>
-                        <li>Hormonal imbalances</li>
-                        <li>Fatigue</li>
-                    </ul>
-                    <a href="https://my.clevelandclinic.org/health/diseases/15328-pituitary-adenomas" class="mt-4 inline-block bg-purple-500 text-white py-2 px-4 rounded-full hover:bg-purple-600 transition duration-300">Learn More</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-        <!-- Detection Section -->
-        <section id="detection" class="neumorph p-6 sm:p-10">
-            <h2 class="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 fade-in"><span class="gradient-text">Detection Process</span>🔍</h2>
-            <p class="text-base sm:text-lg mb-4 fade-in">Our detection process is simple and efficient. Upload your MRI scan, and our AI model will analyze it to provide a detailed report on the presence and type of brain tumor.</p>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
-                <div class="fade-in">
-                    <h3 class="text-2xl font-semibold mb-3"><i class="fas fa-upload mr-2"></i>Upload MRI Scan</h3>
-                    <p class="text-gray-700">Upload your MRI scan in a supported format. Our system supports various file types, ensuring compatibility and ease of use.</p>
-                </div>
-                <div class="fade-in">
-                    <h3 class="text-2xl font-semibold mb-3"><i class="fas fa-cogs mr-2"></i>AI Analysis</h3>
-                    <p class="text-gray-700">Our advanced AI model analyzes the MRI scan, identifying and classifying any brain tumors with high accuracy.</p>
-                </div>
-                <div class="fade-in">
-                    <h3 class="text-2xl font-semibold mb-3"><i class="fas fa-file-alt mr-2"></i>Receive Prediction</h3>
-                    <p class="text-gray-700">Get a detailed prediction report that includes the percentage probability and the class of the detected brain tumor.</p>
-                </div>
-                <div class="fade-in">
-                    <h3 class="text-2xl font-semibold mb-3"><i class="fas fa-user-md mr-2"></i>Consult a Specialist</h3>
-                    <p class="text-gray-700">Consult with a healthcare specialist to discuss the results and plan the next steps for treatment and care.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Detection Form Section -->
-        <section id="detection-form" class="py-10 sm:py-15">
-            <h2 class="text-2xl sm:text-3xl font-bold mb-6 sm:mb-10 text-center fade-in"><span class="gradient-text">Tumor Detection</span>🔬</h2>
+        <!-- Detection Section -->
+        <section id="detection" class="py-20">
+            <h2 class="text-3xl font-bold mb-10 text-center fade-in"><span class="gradient-text">Tumor Detection</span>🔬</h2>
             <div class="max-w-4xl mx-auto">
-                <div class="neumorph p-4 sm:p-6 md:p-10 mb-6 sm:mb-10 bg-gradient-to-br from-purple-100 to-teal-100 fade-in">
+                <div class="neumorph p-6 sm:p-10 mb-10 bg-gradient-to-br from-blue-100 to-teal-100 fade-in">
                     <form id="upload-form" class="flex flex-col items-center">
-                        <div id="drop-area" class="w-full cursor-pointer border-4 border-dashed border-gray-300 rounded-lg p-4 sm:p-10 text-center hover:border-purple-500 transition duration-300 bg-white bg-opacity-50">
-                            <i class="fas fa-cloud-upload-alt text-4xl sm:text-6xl text-purple-500 mb-2 sm:mb-4"></i>
+                        <div id="drop-area" class="w-full cursor-pointer border-4 border-dashed border-gray-300 rounded-lg p-4 sm:p-10 text-center hover:border-blue-500 transition duration-300 bg-white bg-opacity-50">
+                            <i class="fas fa-cloud-upload-alt text-4xl sm:text-6xl text-blue-500 mb-2 sm:mb-4"></i>
                             <p class="text-lg sm:text-xl text-gray-600 mb-2">Drag and drop your MRI scan here 📁</p>
                             <p class="text-base sm:text-lg text-gray-500 mb-2 sm:mb-4">or</p>
-                            <label for="file-input" class="px-4 py-2 sm:px-6 sm:py-3 bg-purple-500 text-white rounded-full hover:bg-purple-600 transition duration-300 cursor-pointer text-sm sm:text-base inline-block">
+                            <label for="file-input" class="px-4 py-2 sm:px-6 sm:py-3 bg-blue-500 text-white rounded-full hover:bg-blue-600 transition duration-300 cursor-pointer text-sm sm:text-base inline-block">
                                 <i class="fas fa-file-medical mr-2"></i> Choose File
                             </label>
                             <input type="file" id="file-input" class="hidden" accept="image/*">
@@ -461,28 +304,28 @@
                         </button>
                     </div>
                 </div>
-                <button id="process-btn" class="w-full bg-gradient-to-r from-purple-500 to-teal-400 text-white font-semibold rounded-full py-4 px-8 hover:from-purple-600 hover:to-teal-500 transition duration-300 flex items-center justify-center text-xl fade-in">
+                <button id="process-btn" class="w-full bg-gradient-to-r from-blue-500 to-teal-400 text-white font-semibold rounded-full py-4 px-8 hover:from-blue-600 hover:to-teal-500 transition duration-300 flex items-center justify-center text-xl fade-in">
                     <i class="fas fa-brain mr-3 text-2xl"></i> Analyze Scan
                 </button>
                 <div id="loading-spinner" class="hidden mt-8 text-center fade-in">
-                    <div class="inline-block animate-spin rounded-full h-16 w-16 border-t-4 border-purple-500"></div>
+                    <div class="inline-block animate-spin rounded-full h-16 w-16 border-t-4 border-blue-500"></div>
                     <p class="mt-4 text-xl text-gray-700">Analyzing your scan... 🧠💻</p>
                 </div>
                 <div id="results" class="mt-10 hidden fade-in">
                     <h3 class="text-2xl font-semibold mb-6 gradient-text text-center">Analysis Results 📊</h3>
-                    <div class="neumorph p-8 bg-gradient-to-br from-purple-100 to-teal-100">
+                    <div class="neumorph p-8 bg-gradient-to-br from-blue-100 to-teal-100">
                         <canvas id="prediction-chart"></canvas>
                     </div>
                     <p id="message-preview" class="text-xl mt-6 text-center font-semibold text-gray-700"></p>
+                    </div>
                 </div>
             </div>
         </section>
-        
 
         <!-- Model Section -->
-        <section id="model" class="neumorph p-6 sm:p-10">
-            <h2 class="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 fade-in"><span class="gradient-text">Our AI Model </span>🤖</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6 sm:mt-10">
+        <section id="model" class="neumorph p-10">
+            <h2 class="text-3xl font-bold mb-6 fade-in"><span class="gradient-text">Our AI Model </span>🤖</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div class="fade-in">
                     <h3 class="text-2xl font-semibold mb-3"><i class="fas fa-database mr-2"></i>Dataset</h3>
                     <p class="text-gray-700">The model was trained on 7,023 MRI images, categorized into four classes: Glioma (1621 images), Meningioma (1645 images), Pituitary Tumor (1757 images), and No Tumor (2000 images). This balanced and diverse dataset enhances the model's generalizability.</p>
@@ -509,61 +352,27 @@
                 </div>
             </div>
         </section>
-
-
-        <!-- Developer Section -->
-        <section id="developer" class="neumorph p-6 sm:p-10 mt-10 sm:mt-20">
-            <h2 class="text-2xl sm:text-3xl font-bold mb-6 fade-in text-center">
-                <span class="gradient-text">Meet the Developer</span>👨‍💻
-            </h2>
-            <div class="flex flex-col items-center justify-center">
-                <div class="w-full sm:w-4/5 md:w-3/4 lg:w-2/3 xl:w-1/2 bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-500 hover:scale-105 hover:shadow-2xl">
-                    <div class="absolute inset-0 bg-gradient-to-r from-purple-500 to-teal-400 opacity-30"></div>
-                    <div class="relative p-4 sm:p-6 text-center">
-                        <div class="flex flex-col sm:flex-row items-center">
-                            <div class="relative w-24 h-24 sm:w-32 sm:h-32 mb-4 sm:mb-0 sm:mr-6">
-                                <img src="https://media.licdn.com/dms/image/v2/D4D03AQH3iWlcTrRR5g/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1700149293716?e=1733356800&v=beta&t=YWyjNX3rLzypeDtbwWMpy09R3tZkzcRScYiI7G3N7BU" 
-                                    alt="Aryan's Profile Picture" 
-                                    class="w-full h-full rounded-full border-4 border-white shadow-lg">
-                            <div class="absolute inset-0 rounded-full border-4 border-white animate-pulse"></div>
-                        </div>
-                        <div class="flex-1">
-                        <h3 class="text-xl sm:text-2xl font-semibold mb-2">Aryan</h3>
-                        <p class="text-sm sm:text-base mb-4">I am a DevOps enthusiast with a passion for integrating development and operations to streamline workflows. I created the deep learning model for brain tumor detection, developed this webpage, and Dockerized the application. Using Terraform and AWS, I deployed the entire solution to the cloud, ensuring scalability and reliability.</p>
-                        <a href="https://www.linkedin.com/in/aryansingh1312" 
-                           class="inline-block bg-gradient-to-r from-purple-500 to-teal-400 text-white font-semibold rounded-full py-2 px-4 hover:from-purple-600 hover:to-teal-500 transition duration-300 text-sm sm:text-base">
-                            Connect on LinkedIn
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
-</section>
-
 
     <!-- Scroll to top button -->
     <div class="scroll-to-top">
         <i class="fas fa-arrow-up"></i>
     </div>
 
-    <footer class="footer bg-gray-800 text-white py-6 sm:py-8">
+    <footer class="bg-gray-800 text-white py-8 mt-20">
         <div class="container mx-auto px-4 text-center">
-            <p class="text-sm sm:text-base">&copy; <span id="current-year"></span> Neuro Detect. All rights reserved.</p>
-            <div class="mt-4 flex flex-col sm:flex-row justify-center space-y-2 sm:space-y-0 sm:space-x-4">
-                <a href="mailto:aryansin2468@gmail.com" class="text-sm sm:text-base hover:text-purple-400 transition-colors duration-300">
-                    <i class="fa fa-envelope mr-2"></i>Contact Us
+            <p>&copy; <span id="current-year"></span> Neuro Detect. All rights reserved.</p>
+            <div class="mt-4 flex justify-center space-x-4">
+                <a href="mailto:aryansin2468@gmail.com" class="hover:text-blue-400"><i class="fa fa-phone-square"></i> Contact Us</a>
+                <a href="https://www.linkedin.com/in/aryansingh1312" target="_blank" rel="noopener noreferrer" class="hover:text-blue-400">
+                    <i class="fab fa-linkedin"></i> LinkedIn
                 </a>
-                <a href="https://www.linkedin.com/in/aryansingh1312" target="_blank" rel="noopener noreferrer" class="text-sm sm:text-base hover:text-purple-400 transition-colors duration-300">
-                    <i class="fab fa-linkedin mr-2"></i>LinkedIn
-                </a>
-                <a href="https://github.com/Aryansin1234" target="_blank" rel="noopener noreferrer" class="text-sm sm:text-base hover:text-purple-400 transition-colors duration-300">
-                    <i class="fab fa-github mr-2"></i>GitHub
+                <a href="https://github.com/Aryansin1234" target="_blank" rel="noopener noreferrer" class="hover:text-blue-400">
+                    <i class="fab fa-github"></i> GitHub
                 </a>
             </div>
         </div>
     </footer>
-
 
     <script>
         // Mobile menu toggle
@@ -605,12 +414,12 @@
     
         function highlight() {
             console.log('Highlight drop area');
-            dropArea.classList.add('border-purple-500', 'bg-purple-100');
+            dropArea.classList.add('border-blue-500', 'bg-blue-100');
         }
     
         function unhighlight() {
             console.log('Unhighlight drop area');
-            dropArea.classList.remove('border-purple-500', 'bg-purple-100');
+            dropArea.classList.remove('border-blue-500', 'bg-blue-100');
         }
     
         // Handle dropped files
@@ -701,13 +510,13 @@
                                 data.probabilities.notumor
                             ],
                             backgroundColor: [
-                                'rgba(88, 33, 176, 0.8)',
+                                'rgba(54, 162, 235, 0.8)',
                                 'rgba(75, 192, 192, 0.8)',
                                 'rgba(255, 206, 86, 0.8)',
                                 'rgba(153, 102, 255, 0.8)'
                             ],
                             borderColor: [
-                                'rgba(88, 33, 176, 1)',
+                                'rgba(54, 162, 235, 1)',
                                 'rgba(75, 192, 192, 1)',
                                 'rgba(255, 206, 86, 1)',
                                 'rgba(153, 102, 255, 1)'
@@ -793,7 +602,7 @@
             draw() {
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                ctx.fillStyle = 'rgba(88, 33, 176, 0.7)';
+                ctx.fillStyle = 'rgba(54, 162, 235, 0.7)';
                 ctx.fill();
             }
         }
@@ -883,32 +692,31 @@
         handleScrollAnimations();
 
         // Navigation highlight
-        const sections = document.querySelectorAll("section[id]");
-        const navLinks = document.querySelectorAll(".nav-link");
+    const sections = document.querySelectorAll("section[id]");
+    const navLinks = document.querySelectorAll(".nav-link");
 
-        function highlightNavigation() {
-            let scrollY = window.pageYOffset;
+    function highlightNavigation() {
+        let scrollY = window.pageYOffset;
 
-            sections.forEach(current => {
-                const sectionHeight = current.offsetHeight;
-                const sectionTop = current.offsetTop - 100; // Adjust this value based on your layout
-                const sectionId = current.getAttribute("id");
+        sections.forEach(current => {
+            const sectionHeight = current.offsetHeight;
+            const sectionTop = current.offsetTop - 100; // Adjust this value based on your layout
+            const sectionId = current.getAttribute("id");
 
-                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-                    navLinks.forEach(link => {
-                        link.classList.remove("active");
-                        if (link.getAttribute("href") === "#" + sectionId) {
-                            link.classList.add("active");
-                        }
-                    });
-                }
-            });
-        }
+            if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                navLinks.forEach(link => {
+                    link.classList.remove("active");
+                    if (link.getAttribute("href") === "#" + sectionId) {
+                        link.classList.add("active");
+                    }
+                });
+            }
+        });
+    }
 
-        window.addEventListener("scroll", highlightNavigation);
-        window.addEventListener("load", highlightNavigation);
+    window.addEventListener("scroll", highlightNavigation);
+    window.addEventListener("load", highlightNavigation);
 
-        document.getElementById('current-year').textContent = new Date().getFullYear();
     </script>
 </body>
 </html>

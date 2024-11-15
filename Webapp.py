@@ -21,20 +21,20 @@ def allowed_file(filename):
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 # Load the model
-Model = load_model('braintumor.h5')
+Model = load_model('Model.h5',compile=False)
 
 tumor_class = {
-    0: 'Glioma_tumor',
-    1: 'Meningioma_tumor',
-    2: 'No_tumor',
-    3: 'Pituitary_tumor'
+    0: 'glioma',
+    1: 'meningioma',
+    2: 'notumor',
+    3: 'pituitary'
 }
 
 def model_predict(img_path, Model):
     img = cv2.imread(img_path)
-    img = cv2.resize(img, (150, 150))
+    img = cv2.resize(img, (224, 224))
     img_array = np.array(img)
-    img_array = img_array.reshape(1, 150, 150, 3)
+    img_array = img_array.reshape(1, 224, 224, 3)
     
     # Predict probabilities for each class
     predictions = Model.predict(img_array)
@@ -49,7 +49,7 @@ def model_predict(img_path, Model):
 
 @app.route('/')
 def index():
-    return render_template('Webpage.html')
+    return render_template('APP.html')
 
 @app.route('/upload', methods=['POST'])
 def upload_file():
@@ -69,12 +69,12 @@ def upload_file():
 
         # Return the prediction probabilities and class labels
         return jsonify({
-            'message': f"{predicted_class} with {confidence_percentage:.2f}% confidence",
+            'message': f"Analysis complete. {predicted_class} with {confidence_percentage:.2f}% confidence",
             'probabilities': {
-                'Glioma_tumor': probabilities[0] * 100,
-                'Meningioma_tumor': probabilities[1] * 100,
-                'No_tumor': probabilities[2] * 100,
-                'Pituitary_tumor': probabilities[3] * 100
+                'glioma': probabilities[0] * 100,
+                'meningioma': probabilities[1] * 100,
+                'notumor': probabilities[2] * 100,
+                'pituitary': probabilities[3] * 100
             }
         })
     else:
